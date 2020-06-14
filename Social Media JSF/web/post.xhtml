@@ -1,0 +1,97 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+    <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+    <html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://xmlns.jcp.org/jsf/html" xmlns:pt="http://xmlns.jcp.org/jsf/passthrough" xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Gönderi</title>
+        <h:outputStylesheet library="css" name="bootstrap.css" />
+        <script src="https://kit.fontawesome.com/ba656a6d22.js" crossorigin="anonymous"></script>
+
+    </h:head>
+    <h:body class="bg-dark w-100 h-100">
+        <nav class="navbar navbar-dark bg-dark border-bottom border-secondary pl-5 pt-1 pr-2 fixed-top">
+            <h:form>
+                <h:commandLink class="navbar-brand">
+                    <p class="font-weight-bold text-uppercase"> <i class="fas fa-pencil-alt fa-2x"></i>&nbsp;socıal medıa</p>
+                </h:commandLink>
+            </h:form>
+
+            <div class="btn btn-group mt-2 pt-1">
+                <h:form class="form-group">
+                    <h:commandLink class="lead font-weight-bold pr-2 mr-2" style="color:#FFF8DC;" value="Ana Sayfa" action="main?faces-redirect=true" />
+                    <h:commandLink class="lead font-weight-bold pr-2 mr-2" style="color:#FFF8DC;" value="Profilim" action="myprofile?faces-redirect=true" />
+                    <h:commandLink class="navbar-brand" action="index">
+                        <p class="pt-1 font-weight-bold text-uppercase"> <i class="fas fa-sign-out-alt"></i>&nbsp;çıkış yap</p>
+                    </h:commandLink>
+                </h:form>
+            </div>
+        </nav>
+
+        <main>
+            <div class="pt-5 mt-5 container-fluid">
+                <div class="row">
+
+                    <div class="col-md-12">
+                        <center>
+                            <div class="w-50 mt-5">
+
+                                <div class="card my-3" style="background-color: #FFFFF0;">
+                                    <div class="card-header">
+                                        <h3 class="text-center lead text-secondary font-weight-bold mx-auto my-auto pb-1">#{commentController.postUser}</h3>
+                                         </div>
+
+                                        <div class="card-body mt-1">
+                                            <p class="card-text text-secondary lead font-weight-bold mx-auto my-auto pb-1">#{commentController.post.data}</p>           
+                                        </div>
+                                            <div class="card-footer mt-2" style="background-color: #FFFFF0;">                         
+                                               <p class="card-text text-right text-secondary pt-1 float-right">#{commentController.post.time}</p>
+                                                <h5 class="card-text text-right text-secondary pt-1 float-left">Beğeni Sayısı : #{commentController.post.likes}</h5>
+                                            </div>
+                                        
+                                </div>
+
+                                <div class="mt-5">
+                                    <h:form class="form-group">
+                                        <h:outputLabel class="p-1 text-light  font-weight-bold" style="color:#FFF8DC; font-size: 22px;" for="share">Bir Şeyler Ekle</h:outputLabel>
+                                        <br/>
+                                        <h:inputTextarea class="form-control mb-1" id="share" pt:placeholder="Bir Şeyler Paylaş" value="#{commentController.comment.data}" />
+                                        <br/>
+                                        <h:commandButton class=" btn btn-secondary" id="xd" value="Yorum Yap" action="#{commentController.Comment()}" />
+                                    </h:form>
+                                </div>
+
+                                <div class="w-100 mt-2">
+                                        <h:dataTable value="#{commentController.commentList}" var="com">
+                                            <h:column>
+                                                <div class="w-100 mt-5">
+                                                    <h:form class="form-group">
+
+                                                        <div class="card mt-5 w-100" style="background-color: #FFFFF0; overflow: auto; width: max-content;">
+                                                            <div class="card-header">
+                                                                <h3  class="card-text text-secondary lead font-weight-bold pl-5">#{com.username}</h3></div>
+                                                            <div class="card-body mt-2">
+                                                                <p  class="card-text text-secondary lead font-weight-bold">#{com.post.comment.data}</p>
+                                                            </div>
+                                                            <div class="card-footer" style="background-color: #FFFFF0;">
+                                                                <p class="card-text text-right text-secondary pt-1">#{com.post.comment.time}</p>
+                                                            </div>
+                                                        </div>
+
+                                                    </h:form>
+                                                </div>
+                                            </h:column>
+
+                                        </h:dataTable>
+                                    
+                                </div>
+
+                            </div>
+                        </center>
+                    </div>
+
+                </div>
+            </div>
+
+        </main>
+    </h:body>
+
+    </html>

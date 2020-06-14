@@ -1,0 +1,152 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+    <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+    <html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://xmlns.jcp.org/jsf/html" xmlns:pt="http://xmlns.jcp.org/jsf/passthrough" xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+
+ <h:outputStylesheet library="css" name="bootstrap.css"/>
+        <title>Ana Sayfa</title>
+        <h:outputStylesheet library="css" name="bootstrap.css"/>
+          <script src="https://kit.fontawesome.com/ba656a6d22.js" crossorigin="anonymous"></script>
+       <script src="https://kit.fontawesome.com/ba656a6d22.js" crossorigin="anonymous"></script>
+        <script src="https://kit.fontawesome.com/84913f23be.js" crossorigin="anonymous"></script>
+        <link href='http://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet'/>
+        <h:outputStylesheet library="js" name="bootstrap.js"/>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    </h:head>
+    <h:body class="bg-dark w-100 h-100">
+       
+
+        <nav class="navbar navbar-dark bg-dark border-bottom border-secondary pl-5 pt-1 pr-2 fixed-top">
+            <h:form>
+                <h:commandLink class="navbar-brand">
+                    <p class="font-weight-bold text-uppercase"> <i class="fas fa-pencil-alt fa-2x"></i>&nbsp;socıal medıa</p>
+                </h:commandLink>
+            </h:form>
+
+            <div class="btn btn-group mt-2 pt-1">
+                <h:form class="form-group">
+                    <h:commandLink class="lead font-weight-bold pr-2 mr-2" style="color:#FFF8DC;" value="Ana Sayfa" action="main?faces-redirect=true" />
+                    <h:commandLink class="lead font-weight-bold pr-2 mr-2" style="color:#FFF8DC;" value="Profilim" action="myprofile?faces-redirect=true" /> 
+                    <h:commandLink class="navbar-brand" action="#{personController.exit()}">
+                        <p class="pt-1 font-weight-bold text-uppercase"> <i class="fas fa-sign-out-alt"></i>&nbsp;çıkış yap</p>
+                    </h:commandLink>
+                </h:form>
+            </div>    
+        </nav>
+
+        <main>
+            <div class="pt-5 mt-5 container-fluid">
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="position-fixed ml-5 mt-2">
+                        <center>
+                           
+                            <div class="clearfix mt-3">               
+                                <h:graphicImage class="rounded-circle" width="125" height="125" value="/resources/pp/#{imageController.image.fileName}" />
+                                <h3 class="text-light font-weight-bold">#{profileController.username}</h3>                  
+                            </div>
+      
+
+                        <div class="mt-5">
+                            <h:form class="form-group" id="form-share">
+                                <h:outputLabel class="p-1 text-light  font-weight-bold" style="color:#FFF8DC; font-size: 22px;" for="share">Bir Şeyler Paylaş</h:outputLabel>
+                                <br/>
+                                <h:inputTextarea class="form-control mb-1" id="share" pt:placeholder="Bir Şeyler Paylaş"  value="#{postController.post.data}" />
+                                <br/>
+                                <h:commandButton class=" btn btn-secondary" id="xd" value="Paylaş" action="#{postController.Share()}" />
+                            </h:form>
+                        </div>
+                                
+                        </center>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <center>
+                        <div class="container-fluid">
+                            <h:dataTable id="data-table-posts" value="#{postController.personList}" var="personL">
+                                <h:column>
+                                    <h:form class="form-group">
+                            
+                                        <div class="card mt-5" style="background-color: #FFFFF0; overflow: auto; width: max-content;">
+                                            <div class="card-header">
+                                                <h:graphicImage class="rounded-circle float-left" width="75" height="75" value="/resources/pp/#{personL.imgName}" />
+                                                <h3><h:commandLink  class="card-text text-secondary lead font-weight-bold pl-5 py-3" value="#{personL.username}" action="#{userProfileController.UserprofileXhtml(personL)}"/></h3></div>
+                                            <div class="card-body mt-2">
+                                                <p>
+                                                    <h:commandLink class="card-text text-secondary lead font-weight-bold" value="#{personL.post.data}" action="#{commentController.toPostXhtml(personL)}" />
+                                                </p>       
+                                                          <p class="card-text text-right text-secondary pt-1 pl-2 float-right">#{personL.post.time}</p>
+                                                <p class="card-text text-right text-secondary pt-1 pr-2 float-left">Beğeni Sayısı :  #{personL.post.likes}</p>
+                                                <div class="card-footer" style="background-color: #FFFFF0;">
+                                      
+                                                    <div class="btn-group mt-3 w-100">
+                                                        <h:commandButton class="btn btn-secondary" value="Beğen" action="#{favController.Like(personL.post)}" />
+                                                        <h:commandButton class="btn btn-secondary ml-1" value="Yorum Yap" action="#{commentController.toPostXhtml(personL)}" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                               
+                                    </h:form>
+                                </h:column>
+                            </h:dataTable>
+                        </div>
+                            </center>
+                    </div>
+
+                   <div class="col-md-3">
+                        <div class="position-fixed mt-5 ml-1">
+
+                             <div id="accordion">
+                               <div class="card">
+                                    <div class="card-header">
+                                      <a class="collapsed card-link text-secondary lead font-weight-bold" data-toggle="collapse" href="#collapseSearch">
+                                           Kullanıcı Arayın
+                                      </a>
+                                    </div>
+                                    <div id="collapseSearch" class="collapse" data-parent="#accordion">
+                                      <div class="card-body">               
+                                         
+                                        <div class="mt-2 mr-2">
+                                                <h:form id="form-search" class="form-group">            
+                                                    <h:inputText class="form-control text-secondary lead font-weight-bold p-1" id="search" pt:placeholder="Kullanıcı Arayın" required="true" value="#{friendController.personName}" />
+                                                    <h:commandButton class="btn btn-secondary ml-5  mt-3" value="Ara" action="#{friendController.getUsers()}">
+                                                        <f:ajax execute="form-search" render="data-table-persons"></f:ajax>
+                                                    </h:commandButton>
+                                                </h:form>
+                                         </div>
+                                          <br/>
+                     
+                                          <div class="mt-2">
+                                            <h:dataTable id="data-table-persons" value="#{friendController.personList}" var="person">
+                                                <h:column>
+                                                    <h:form class="form-group">
+                                                        <h:commandLink class="text-secondary lead font-weight-bold" action="#{userProfileController.UserprofileXhtml(person)}">
+                                                            <h:outputText value="#{person.username}" />
+                                                        </h:commandLink>
+                                                    </h:form>
+                                                </h:column>
+
+                                                <h:column>
+                                                    <h:form class="form-group" id="form-follow">
+                                                        <f:facet name="header">Follow</f:facet>
+                                                        <h:commandButton class="btn btn-secondary ml-1 mt-2" value="Takip Et" action="#{friendController.Add(person)}" rendered="#{friendController.isFriendF(person)}" />
+                                                        <h:commandButton class="btn btn-secondary ml-1 mt-2" value="Takibi Bırak" action="#{friendController.Delete(person)}" rendered="#{friendController.isFriendUnf(person)}" />
+                                                    </h:form>
+                                                </h:column>
+                                            </h:dataTable>
+                                         </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                             </div>                             
+              </div>
+         </div>
+                </div>
+                </div>
+        </main>
+    </h:body>
+    </html>

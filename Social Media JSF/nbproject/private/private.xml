@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/C:/Users/New/Documents/NetBeansProjects/JavaWeb1/src/java/entity/Image.java</file>
+            <file>file:/C:/Users/New/Documents/NetBeansProjects/JavaWeb1/src/java/controller/PersonController.java</file>
+            <file>file:/C:/Users/New/Documents/NetBeansProjects/JavaWeb1/web/WEB-INF/web.xml</file>
+            <file>file:/C:/Users/New/Documents/NetBeansProjects/JavaWeb1/src/java/controller/FriendController.java</file>
+            <file>file:/C:/Users/New/Documents/NetBeansProjects/JavaWeb1/src/java/entity/Post.java</file>
+            <file>file:/C:/Users/New/Documents/NetBeansProjects/JavaWeb1/web/post.xhtml</file>
+            <file>file:/C:/Users/New/Documents/NetBeansProjects/JavaWeb1/src/java/entity/Comment.java</file>
+            <file>file:/C:/Users/New/Documents/NetBeansProjects/JavaWeb1/src/java/controller/UserImageController.java</file>
+            <file>file:/C:/Users/New/Documents/NetBeansProjects/JavaWeb1/src/java/dao/CommentDao.java</file>
+            <file>file:/C:/Users/New/Documents/NetBeansProjects/JavaWeb1/src/java/dao/UserImageDao.java</file>
+            <file>file:/C:/Users/New/Documents/NetBeansProjects/JavaWeb1/src/java/controller/PostController.java</file>
+            <file>file:/C:/Users/New/Documents/NetBeansProjects/JavaWeb1/web/userprofile.xhtml</file>
+            <file>file:/C:/Users/New/Documents/NetBeansProjects/JavaWeb1/web/myprofile.xhtml</file>
+            <file>file:/C:/Users/New/Documents/NetBeansProjects/JavaWeb1/src/java/controller/ProfileController.java</file>
+            <file>file:/C:/Users/New/Documents/NetBeansProjects/JavaWeb1/src/java/dao/PersonDao.java</file>
+            <file>file:/C:/Users/New/Documents/NetBeansProjects/JavaWeb1/web/main.xhtml</file>
+            <file>file:/C:/Users/New/Documents/NetBeansProjects/JavaWeb1/src/java/controller/UserProfileController.java</file>
+            <file>file:/C:/Users/New/Documents/NetBeansProjects/JavaWeb1/src/java/dao/UserProfileDao.java</file>
+            <file>file:/C:/Users/New/Documents/NetBeansProjects/JavaWeb1/web/forgotPassword.xhtml</file>
+            <file>file:/C:/Users/New/Documents/NetBeansProjects/JavaWeb1/src/java/entity/Person.java</file>
+            <file>file:/C:/Users/New/Documents/NetBeansProjects/JavaWeb1/src/conf/MANIFEST.MF</file>
+            <file>file:/C:/Users/New/Documents/NetBeansProjects/JavaWeb1/src/java/dao/PostDao.java</file>
+            <file>file:/C:/Users/New/Documents/NetBeansProjects/JavaWeb1/src/java/controller/CommentController.java</file>
+            <file>file:/C:/Users/New/Documents/NetBeansProjects/JavaWeb1/web/resources/css/bootstrap.css</file>
+            <file>file:/C:/Users/New/Documents/NetBeansProjects/JavaWeb1/web/register.xhtml</file>
+            <file>file:/C:/Users/New/Documents/NetBeansProjects/JavaWeb1/src/java/dao/FriendDao.java</file>
+            <file>file:/C:/Users/New/Documents/NetBeansProjects/JavaWeb1/src/java/dao/FavDao.java</file>
+            <file>file:/C:/Users/New/Documents/NetBeansProjects/JavaWeb1/web/index.xhtml</file>
+            <file>file:/C:/Users/New/Documents/NetBeansProjects/JavaWeb1/src/java/util/Db.java</file>
+            <file>file:/C:/Users/New/Documents/NetBeansProjects/JavaWeb1/nbproject/build-impl.xml</file>
+            <file>file:/C:/Users/New/Documents/NetBeansProjects/JavaWeb1/src/java/controller/ImageController.java</file>
+            <file>file:/C:/Users/New/Documents/NetBeansProjects/JavaWeb1/src/java/controller/FavController.java</file>
+            <file>file:/C:/Users/New/Documents/NetBeansProjects/JavaWeb1/src/java/dao/ProfileDao.java</file>
+            <file>file:/C:/Users/New/Documents/NetBeansProjects/JavaWeb1/src/java/dao/ImageDao.java</file>
+        </group>
+    </open-files>
+</project-private>

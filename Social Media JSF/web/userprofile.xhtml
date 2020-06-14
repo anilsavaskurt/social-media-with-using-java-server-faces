@@ -1,0 +1,123 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <h:outputStylesheet library="css" name="bootstrap.css"/>
+       <script src="https://kit.fontawesome.com/ba656a6d22.js" crossorigin="anonymous"></script>
+        <script src="https://kit.fontawesome.com/84913f23be.js" crossorigin="anonymous"></script>
+        <link href='http://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet'/>
+        <h:outputStylesheet library="js" name="bootstrap.js"/>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+        <title>Kullanıcı Profil</title>
+    </h:head>
+    <h:body class="bg-dark w-100 h-100">
+
+            <nav class="navbar navbar-dark bg-dark border-bottom border-secondary pl-5 pt-1 pr-2 fixed-top">
+            <h:form>
+                <h:commandLink class="navbar-brand">
+                    <p class="font-weight-bold text-uppercase"> <i class="fas fa-pencil-alt fa-2x"></i>&nbsp;socıal medıa</p>
+                </h:commandLink>
+            </h:form>
+
+            <div class="btn btn-group mt-2 pt-1">
+                <h:form class="form-group">
+                    <h:commandLink class="lead font-weight-bold pr-2 mr-2" style="color:#FFF8DC;" value="Ana Sayfa" action="main" />
+                    <h:commandLink class="lead font-weight-bold pr-2 mr-2" style="color:#FFF8DC;" value="Profilim" action="myprofile" /> 
+                    <h:commandLink class="navbar-brand" action="index">
+                        <p class="pt-1 font-weight-bold text-uppercase"> <i class="fas fa-sign-out-alt"></i>&nbsp;çıkış yap</p>
+                    </h:commandLink>
+                </h:form>
+            </div>    
+        </nav>
+
+        <main>
+            
+                   <div class="pt-5 mt-5 container-fluid">
+                <div class="row">
+                      
+                    <div clasS="col-md-3">
+                              <div class="position-fixed ml-5 mt-2">
+                                 
+                                   <center>
+                                            <div class="clearfix mt-3">
+                                                <h:graphicImage  class="rounded-circle" width="125" height="125"  value="/resources/pp/#{userImageController.getUserPP().fileName}"/>
+                                                <h3 class="text-light font-weight-bold">#{userProfileController.user.username}</h3>   
+                                            </div>
+                                       </center>
+                           </div>
+                        </div>
+     
+
+        <div class="col-md-6">
+            <center>
+                         <div class="container-fluid w-100">
+                            <h:dataTable value="#{userProfileController.userPostList}"  var="userPosts">
+                                
+                            <h:column>
+                                   <h:form class="form-group" >
+                                               <div class="card mt-5" style="background-color: #FFFFF0; overflow: auto; width: max-content;">
+                                             
+                                           <div class="card-header" >
+                                               <h:graphicImage class="rounded-circle float-left" width="75" height="75" value="/resources/pp/#{userImageController.getUserPP().fileName}" />
+                                               <h3 class="text-center lead text-secondary font-weight-bold mx-auto my-auto">#{userPosts.username}</h3></div>
+                                                  <div class="card-body mt-2">
+                                                       <p><h:commandLink class="card-text text-secondary lead font-weight-bold" value="#{userPosts.post.data}" action="#{commentController.toPostXhtml(userPosts)}"/></p>
+                                                       <div class="card-footer mt-5" style="background-color: #FFFFF0;">     
+                                                                 <p class="card-text text-right text-secondary pt-1 pl-2 float-right">#{userPosts.post.time}</p>
+                                                                <p class="card-text text-right text-secondary pt-1 pr-2 float-left">Beğeni Sayısı :  #{userPosts.post.likes}</p>
+                                                           <div class="btn-group mt-3 w-100">
+                                                                            <h:commandButton class="btn btn-secondary" value="Beğen" action="#{favController.Like(userPosts.post)}"/>
+                                                                            <h:commandButton class="btn btn-secondary ml-1" value="Yorum Yap"  action="#{commentController.toPostXhtml(userPosts)}"/>
+                                                            </div>                      
+                                                       </div>             
+                                                  </div>
+                                         </div>  
+                                   </h:form>
+                            </h:column>
+                        </h:dataTable>
+                        </div>
+                 </center>
+                 </div>
+        
+             <div class="col-md-3">
+                     <div class="mt-5">    
+                         
+                                          <div id="accordion">
+                                           <div class="card">
+                                                <div class="card-header">
+                                                  <a class="collapsed card-link text-secondary lead font-weight-bold" data-toggle="collapse" href="#collapseUserFriend">
+                                                       Arkadaş Listesi
+                                                  </a>
+                                                </div>
+                                                <div id="collapseUserFriend" class="collapse" data-parent="#accordion">
+                                                  <div class="card-body">               
+                                                        <div class="mt-3">
+                                                         <h:dataTable value="#{userProfileController.userFriendList}"  var="userFriends">
+                                                           <h:column>
+                                                               <h:form class="form-group">  
+                                                                   <h:commandLink class="text-secondary lead font-weight-bold"  action="#{userProfileController.UserprofileXhtml(userFriends)}" >        
+                                                                       <h:outputText value=" #{userFriends.username}"/> 
+                                                                      </h:commandLink>
+                                                                  </h:form>
+                                                               </h:column>
+                                                       </h:dataTable>
+                                                    </div>
+                                                  </div>
+                                                </div>
+                                              </div>
+                                    </div>
+                                </div>
+
+        </div>
+
+    
+                </div>
+                   </div>
+    
+    </main>
+    </h:body>
+</html>
